@@ -1,0 +1,34 @@
+<app-encabezado-principal></app-encabezado-principal>
+<div class="fondo flex justify-content-center p-4">
+  <div class="pt-8 w-20rem h-22rem bg-white ">
+    <div class="flex align-items-center justify-content-center font-bold text-primary p-0 ">
+      <p>¡Bienvenid@ de vuelta!</p>
+    </div>
+    <div class="card">
+      <div class="field flex justify-content-center">
+          <input
+          [(ngModel)]="correo"
+          id="correo"
+          type="text"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10"
+          placeholder="Correo electronico">
+      </div>
+      <div class="field flex justify-content-center p-fluid">
+        <p-password
+        [(ngModel)]="contrasena"
+        placeholder="Contraseña"
+        [toggleMask]="true"
+        [feedback]="false"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 p-inputtext">
+      </p-password>
+      </div>
+      <div class="field flex justify-content-center">
+        <p-button
+        label="Iniciar Sesion"
+        class=""
+        styleClass="px-6 borde-primario text-50 h-2rem m-3"
+        (click)="validarCredenciales()"></p-button>
+    </div>
+  </div>
+  </div>
+</div>

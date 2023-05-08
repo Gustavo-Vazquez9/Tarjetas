@@ -1,0 +1,13 @@
+.encabezado {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logo {
+  right: 0;
+  width: 150px;
+  margin-right: 40px;
+}
