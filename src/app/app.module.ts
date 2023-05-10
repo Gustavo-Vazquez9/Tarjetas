@@ -7,11 +7,13 @@ import { LoginModule } from './login/login.module';
 import { PrimeModule } from './prime/prime.module';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
     RouterModule,

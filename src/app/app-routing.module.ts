@@ -4,6 +4,10 @@ import { PrincipalComponent } from "./login/principal/principal.component";
 
 const routes: Routes = [
   {
+    path:'',
+    component: PrincipalComponent
+  },
+  {
     path:'auth',
     loadChildren: () => import('./login/login.module').then( module => module.LoginModule)
   }

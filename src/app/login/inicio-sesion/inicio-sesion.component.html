@@ -4,18 +4,24 @@
     <div class="flex align-items-center justify-content-center font-bold text-primary p-0 ">
       <p>¡Bienvenid@ de vuelta!</p>
     </div>
-    <div class="card">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="card">
       <div class="field flex justify-content-center">
           <input
           [(ngModel)]="correo"
-          id="correo"
-          type="text"
+          formControlName="email"
+          name="correo"
+          type="email"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10"
           placeholder="Correo electronico">
       </div>
+
+        <small *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="errors">El correo electrónico es requerido</small>
+
       <div class="field flex justify-content-center p-fluid">
         <p-password
         [(ngModel)]="contrasena"
+        formControlName="password"
+        name="contra"
         placeholder="Contraseña"
         [toggleMask]="true"
         [feedback]="false"
@@ -25,10 +31,10 @@
       <div class="field flex justify-content-center">
         <p-button
         label="Iniciar Sesion"
-        class=""
         styleClass="px-6 borde-primario text-50 h-2rem m-3"
+        type="submit"
         (click)="validarCredenciales()"></p-button>
     </div>
-  </div>
+  </form>
   </div>
 </div>

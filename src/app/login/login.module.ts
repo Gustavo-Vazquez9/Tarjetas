@@ -13,7 +13,7 @@ import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { PasswordModule } from 'primeng/password';
 import { LoginRoutingModule } from './login-routing.module';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,17 +26,13 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     LoginRoutingModule,
     PrimeModule,
     ButtonModule,
     CardModule,
     PasswordModule
-  ],
-  exports:[
-    PrincipalComponent,
-    InicioSesionComponent,
-    CrearCuentaComponent
   ]
 })
 export class LoginModule { }

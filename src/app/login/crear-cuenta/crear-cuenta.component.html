@@ -4,49 +4,49 @@
     <div class="flex align-items-center justify-content-center font-bold text-primary p-0 ">
       <p>¡Bienvenid@!</p>
     </div>
-    <div class="card">
-      <div class="field flex justify-content-center">
+      <div class="card">
+        <div class="field flex justify-content-center">
+            <input
+            id="Nombre"
+            type="text"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 h-3rem"
+            placeholder="Nombre">
+        </div>
+        <div class="field flex justify-content-center">
           <input
-          id="Nombre"
+          id="Apellido"
           type="text"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 h-3rem"
-          placeholder="Nombre">
+          placeholder="Apellido">
+        </div>
+        <div class="field flex justify-content-center">
+            <input
+            id="Correo"
+            type="text"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 h-3rem"
+            placeholder="Correo electronico">
+        </div>
+        <div class="field flex justify-content-center p-fluid">
+          <p-password
+          placeholder="Contraseña"
+          [toggleMask]="true"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 p-inputtext">
+        </p-password>
+        </div>
+        <div class="field flex justify-content-center p-fluid">
+          <p-password
+          placeholder="Repite contraseña"
+          [toggleMask]="true"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 p-inputtext">
+        </p-password>
+        </div>
+        <div class="field flex justify-content-center">
+          <p-button label="Crear Cuenta" class="" styleClass="px-6 borde-primario text-50 h-2rem m-3"></p-button>
+        </div>
+        <div class="field flex justify-content-center">
+          <p>¿Ya tienes cuenta?</p>
+          <p><a  routerLink="/login">Inicia Sesion</a></p>
+        </div>
       </div>
-      <div class="field flex justify-content-center">
-        <input
-        id="Apellido"
-        type="text"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 h-3rem"
-        placeholder="Apellido">
-      </div>
-      <div class="field flex justify-content-center">
-          <input
-          id="Correo"
-          type="text"
-          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 h-3rem"
-          placeholder="Correo electronico">
-      </div>
-      <div class="field flex justify-content-center p-fluid">
-        <p-password
-        placeholder="Contraseña"
-        [toggleMask]="true"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 p-inputtext">
-      </p-password>
-      </div>
-      <div class="field flex justify-content-center p-fluid">
-        <p-password
-        placeholder="Repite contraseña"
-        [toggleMask]="true"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 p-inputtext">
-      </p-password>
-      </div>
-      <div class="field flex justify-content-center">
-        <p-button label="Crear Cuenta" class="" styleClass="px-6 borde-primario text-50 h-2rem m-3"></p-button>
-      </div>
-      <div class="field flex justify-content-center">
-        <p>¿Ya tienes cuenta?</p>
-        <p><a  routerLink="/login">Inicia Sesion</a></p>
-      </div>
-  </div>
   </div>
 </div>
