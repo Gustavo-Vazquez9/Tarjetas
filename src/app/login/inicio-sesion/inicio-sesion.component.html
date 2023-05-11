@@ -39,6 +39,11 @@
           La contraseña debe de ser minimo de 6 caracteres
         </small>
       </div>
+      <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
+        <small *ngIf="validarDatos" class="errors">
+          Verifica tu correo y contraseña
+        </small>
+      </div>
       </div>
       <div class="field flex justify-content-center">
         <p-button

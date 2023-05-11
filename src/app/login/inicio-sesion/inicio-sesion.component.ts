@@ -12,6 +12,7 @@ import { map } from 'rxjs';
 export class InicioSesionComponent implements OnInit{
   loading = false;
   public validaEntrada = false;
+  public validarDatos = false;
   public loginForm!: FormGroup;
   public correo : string = ''
   public contrasena : string = ''
@@ -55,25 +56,14 @@ export class InicioSesionComponent implements OnInit{
         {
           this.loading=false;
           this.validaEntrada=false;
+          setTimeout(() => {
+            this.validarDatos= false;
+          }, 4000);
+          this.validarDatos= true;
         }
       });
     }
     );
-
-    if(this.correo === this.credencialesValidas.correo && this.contrasena === this.credencialesValidas.contra)
-    {
-      this.loading = true;
-      this.validaEntrada=true;
-      this.loadingService.setLoading().subscribe( () =>
-      {
-        this.loading=false;
-        this.router.navigate(['/crearCuenta']);
-      }
-      )
-    } else
-    {
-      this.validaEntrada=false;
-    }
   }
 
   onSubmit()
