@@ -5,7 +5,7 @@
       <p>¡Bienvenid@ de vuelta!</p>
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="card">
-      <div class="field flex justify-content-center">
+      <div class="field block justify-content-center text-center">
           <input
           [(ngModel)]="correo"
           formControlName="email"
@@ -13,20 +13,32 @@
           type="email"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10"
           placeholder="Correo electronico">
+          <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
+            <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')" class="errors">
+              El correo electrónico es requerido
+            </small>
+            <small *ngIf="loginForm.get('email')?.hasError('email')" class="errors">
+              El correo electrónico no es valido
+            </small>
+          </div>
       </div>
-
-        <small *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="errors">El correo electrónico es requerido</small>
-
-      <div class="field flex justify-content-center p-fluid">
+      <div class=" block justify-content-center text-center pr-4 pl-4 p-fluid">
         <p-password
         [(ngModel)]="contrasena"
         formControlName="password"
         name="contra"
         placeholder="Contraseña"
         [toggleMask]="true"
-        [feedback]="false"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 p-inputtext">
+        [feedback]="false">
       </p-password>
+      <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
+        <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')" class="errors">
+          La contraseña es requerido
+        </small>
+        <small *ngIf="loginForm.get('password')?.hasError('minlength')" class="errors">
+          La contraseña debe de ser minimo de 6 caracteres
+        </small>
+      </div>
       </div>
       <div class="field flex justify-content-center">
         <p-button
