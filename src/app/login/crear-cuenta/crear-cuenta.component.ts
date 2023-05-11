@@ -11,6 +11,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class CrearCuentaComponent implements OnInit{
 
   public createForm!: FormGroup;
+  public validaIgualdadContra = false;
   public loading = false;
   //variables para guardar
   public nombre : string = "";
@@ -30,9 +31,9 @@ ngOnInit()
     {
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
-      correo: ['', [Validators.required, Validators.email]],
-      contra1: ['', [Validators.required]],
-      contra2: ['', [Validators.required]]
+      correo: ['', [Validators.required, Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)]],
+      contra1: ['', [Validators.required,Validators.minLength(6)]],
+      contra2: ['', [Validators.required,Validators.minLength(6)]]
     }
   );
 }
@@ -47,23 +48,29 @@ registrar()
     "correo":this.correo,
     "contra":this.contra
   }
-
   this.loginService.postUsuario("http://localhost:3000/usuarios", this.post)
-      .subscribe( (data) =>
-      {
-        if(this.createForm.value.contra1 === this.createForm.value.contra2)
-        {
-          this.loading=false;
-          this.router.navigate(['/login']);
-          console.log(data);
-        }else{
-          this.loading=false;
-        }
-      }
-      );
+  .subscribe( (data) =>
+  {
+    this.loading=false;
+    this.router.navigate(['/login']);
+    console.log(data);
+  });
 }
+
+
 onSubmit()
 {
 
+}
+
+verificar()
+{
+  if(this.createForm.value.contra1 === this.createForm.value.contra2)
+    {
+      this.validaIgualdadContra=false;
+    }
+    else {
+      this.validaIgualdadContra=true;
+    }
 }
 }

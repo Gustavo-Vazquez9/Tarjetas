@@ -33,7 +33,7 @@
       </p-password>
       <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
         <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')" class="errors">
-          La contraseña es requerido
+          La contraseña es requerida
         </small>
         <small *ngIf="loginForm.get('password')?.hasError('minlength')" class="errors">
           La contraseña debe de ser minimo de 6 caracteres

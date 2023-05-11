@@ -5,7 +5,7 @@
       <p>¡Bienvenid@!</p>
     </div>
       <form class="card" [formGroup]="createForm" (ngSubmit)="onSubmit()">
-        <div class="field flex justify-content-center">
+        <div class="field block justify-content-center text-center">
             <input
             [(ngModel)]="nombre"
             formControlName="nombre"
@@ -13,8 +13,13 @@
             type="text"
             class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 h-3rem"
             placeholder="Nombre">
+            <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
+              <small *ngIf="createForm.get('nombre')?.touched && createForm.get('nombre')?.hasError('required')" class="errors">
+                El nombre es requerido
+              </small>
+            </div>
         </div>
-        <div class="field flex justify-content-center">
+        <div class="field block justify-content-center text-center">
           <input
           [(ngModel)]="apellido"
           formControlName="apellido"
@@ -22,8 +27,13 @@
           type="text"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 h-3rem"
           placeholder="Apellido">
+          <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
+            <small *ngIf="createForm.get('apellido')?.touched && createForm.get('apellido')?.hasError('required')" class="errors">
+              El apellido es requerido
+            </small>
+          </div>
         </div>
-        <div class="field flex justify-content-center">
+        <div class="field block justify-content-center text-center">
             <input
             [(ngModel)]="correo"
             formControlName="correo"
@@ -31,30 +41,67 @@
             type="text"
             class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 h-3rem"
             placeholder="Correo electronico">
+            <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
+              <small *ngIf="createForm.get('correo')?.touched && createForm.get('correo')?.hasError('required')" class="errors">
+                El correo es requerido
+              </small>
+              <small *ngIf="createForm.get('correo')?.hasError('pattern')" class="errors">
+                El correo debe de ser valido
+              </small>
+            </div>
         </div>
-        <div class="field flex justify-content-center p-fluid">
+        <div class="block justify-content-center text-center pr-5 pl-5 pt-3 p-fluid">
           <p-password
           [(ngModel)]="contra"
           formControlName="contra1"
           name="contra1"
           placeholder="Contraseña"
           [toggleMask]="true"
-          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 p-inputtext">
+          [feedback]="false">
         </p-password>
+        <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
+          <small *ngIf="createForm.get('contra1')?.touched && createForm.get('contra1')?.hasError('required')" class="errors">
+            La contraseña es requerida
+          </small>
+          <small *ngIf="createForm.get('contra1')?.hasError('minlength')" class="errors">
+            La contraseña debe de ser minimo de 6 caracteres
+          </small>
         </div>
-        <div class="field flex justify-content-center p-fluid">
+        </div>
+        <div class="block justify-content-center text-center pr-5 pl-5 pt-3 p-fluid">
           <p-password
           formControlName="contra2"
           name="contra2"
           placeholder="Repite contraseña"
           [toggleMask]="false"
-          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-10 p-inputtext">
-        </p-password>
+          [feedback]="false"
+          (keyup)="verificar()">
+          </p-password>
+          <div class=" align-items-center justify-content-center text-red-500 p-0 m-0">
+            <small *ngIf="createForm.get('contra2')?.touched && createForm.get('contra2')?.hasError('required')" class="errors">
+              La contraseña es requerida
+            </small>
+            <small *ngIf="createForm.get('contra2')?.hasError('minlength')" class="errors">
+              La contraseña debe de ser minimo de 6 caracteres
+            </small>
+            <small *ngIf="validaIgualdadContra" class="errors">
+              Las contraseñas no coinciden
+            </small>
+          </div>
         </div>
-        <div class="field flex justify-content-center">
+        <div *ngIf="!createForm.get('nombre')?.hasError('required') &&
+                    !createForm.get('apellido')?.hasError('required') &&
+                    !createForm.get('correo')?.hasError('required') &&
+                    !createForm.get('correo')?.hasError('email') &&
+                    !createForm.get('contra1')?.hasError('required') &&
+                    !createForm.get('contra1')?.hasError('minlength') &&
+                    !createForm.get('contra2')?.hasError('required') &&
+                    !createForm.get('contra2')?.hasError('minlength') &&
+                    !validaIgualdadContra"
+              class="field block justify-content-center text-center">
           <p-button label="Crear Cuenta" class="" styleClass="px-6 borde-primario text-50 h-2rem m-3" (click)="registrar()"></p-button>
         </div>
-        <div class="field flex justify-content-center">
+        <div class="justify-content-center text-center p-0">
           <p>¿Ya tienes cuenta?</p>
           <p><a  routerLink="/login">Inicia Sesion</a></p>
         </div>

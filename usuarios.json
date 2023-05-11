@@ -6,6 +6,13 @@
       "apellido": "Vazquez",
       "correo": "gusgoludo9@gmail.com",
       "contra": "CruzAzul.9"
+    },
+    {
+      "nombre": "Jazmin",
+      "apellido": "Morales Chavarria",
+      "correo": "jaz1234@gmail.com",
+      "contra": "Morena12",
+      "id": 2
     }
   ]
 }
