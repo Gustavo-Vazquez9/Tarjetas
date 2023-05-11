@@ -2,4 +2,13 @@
   background-color: #243c7c;
   width: 100vw;
   height: 100vh;
+  position: relative;
+}
+
+
+app-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

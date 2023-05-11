@@ -1,0 +1,11 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Gustavo",
+      "apellido": "Vazquez",
+      "correo": "gusgoludo9@gmail.com",
+      "contra": "CruzAzul.9"
+    }
+  ]
+}

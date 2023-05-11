@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
 
 @Injectable({
@@ -20,5 +20,26 @@ export class LoadingService {
         this.loading.next(false);
       })
     )
+  }
+
+  public postUsuario(url: string, httpHeaders: {}): Observable<any> {
+    return this.http.post<any>(url, httpHeaders)
+      .pipe(
+        map(data => {
+          this.loading.next(false);
+          return data;
+        })
+      )
+  }
+
+
+  public getUusario(url: string): Observable<any> {
+    return this.http.get<any>(url)
+      .pipe(
+        map(data => {
+          this.loading.next(false);
+          return data;
+        })
+      )
   }
 }

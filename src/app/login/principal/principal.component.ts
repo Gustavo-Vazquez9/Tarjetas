@@ -23,5 +23,15 @@ export class PrincipalComponent {
     }
     )
   }
+  navegaACrearCuenta()
+  {
+    this.loading = true;
+    this.loadingService.setLoading().subscribe( () =>
+    {
+      this.loading=false;
+      this.router.navigate(['/crearCuenta']);
+    }
+    )
+  }
 
 }

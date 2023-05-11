@@ -7,8 +7,7 @@
     </div>
     <div class="flex  justify-content-center font-bold text-blue-800">
       <p-button label="Iniciar Sesion" styleClass="p-button-outlined px-6 borde-primario text-50" class="pr-4" (click)="navegaALogin()"></p-button>
-      <p-button label="Crear Cuenta" styleClass="surface-0 p-button-link text-primary"  routerLink="/crearCuenta"></p-button>
+      <p-button label="Crear Cuenta" styleClass="surface-0 p-button-link text-primary"  (click)="navegaACrearCuenta()"></p-button>
     </div>
   </div>
 </div>
-<app-loading *ngIf="loading"></app-loading>

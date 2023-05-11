@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/services/loading.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -8,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio-sesion.component.css']
 })
 export class InicioSesionComponent implements OnInit{
+  loading = false;
   public validaEntrada = false;
   public loginForm!: FormGroup;
   public correo : string = ''
@@ -18,7 +21,7 @@ export class InicioSesionComponent implements OnInit{
     contra:'CruzAzul.9'
   }
 
-  constructor(private router:Router, private formBuilder: FormBuilder){}
+  constructor(private router:Router, private formBuilder: FormBuilder,private loadingService: LoadingService){}
 
 
   ngOnInit()
@@ -34,11 +37,40 @@ export class InicioSesionComponent implements OnInit{
   validarCredenciales()
   {
 
+    this.loadingService.getUusario("http://localhost:3000/usuarios")
+    .subscribe( (data) =>
+    {
+      this.loading = true;
+      this.validaEntrada=true;
+      console.log(data);
+      data.map( (item : any) =>
+      {
+        console.log(item);
+        if(this.correo === item.correo && this.contrasena === item.contra)
+        {
+            this.loading=false;
+            this.router.navigate(['/crearCuenta']);
+
+        } else
+        {
+          this.loading=false;
+          this.validaEntrada=false;
+        }
+      });
+    }
+    );
+
     if(this.correo === this.credencialesValidas.correo && this.contrasena === this.credencialesValidas.contra)
     {
-      this.router.navigate(['/crearCuenta']);
+      this.loading = true;
       this.validaEntrada=true;
-    } else 
+      this.loadingService.setLoading().subscribe( () =>
+      {
+        this.loading=false;
+        this.router.navigate(['/crearCuenta']);
+      }
+      )
+    } else
     {
       this.validaEntrada=false;
     }

@@ -1,0 +1,25 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Gustavo",
+      "apellido": "Vazquez",
+      "correo": "gusgoludo9@gmail.com",
+      "contra": "CruzAzul.9"
+    },
+    {
+      "id": 2,
+      "nombre": "Gaby",
+      "apellido": "Vazquez",
+      "correo": "gaby@gmail.com",
+      "contra": "CruzAzul.9"
+    },
+    {
+      "id": 3,
+      "nombre": "Luna",
+      "apellido": "Luna",
+      "correo": "lunax2@gmail.com",
+      "contra": "CruzAzul.9"
+    }
+  ]
+}
