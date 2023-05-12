@@ -29,7 +29,7 @@ export class InicioSesionComponent implements OnInit{
   {
     this.loginForm = this.formBuilder.group(
       {
-        email: ['', [Validators.required, Validators.email]],
+        email: ['', [Validators.required, Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)]],
         password: ['', [Validators.required, Validators.minLength(6)]]
       }
     );

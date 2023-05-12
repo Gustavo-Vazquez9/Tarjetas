@@ -17,7 +17,7 @@
             <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')" class="errors">
               El correo electrónico es requerido
             </small>
-            <small *ngIf="loginForm.get('email')?.hasError('email')" class="errors">
+            <small *ngIf="loginForm.get('email')?.hasError('pattern')" class="errors">
               El correo electrónico no es valido
             </small>
           </div>
