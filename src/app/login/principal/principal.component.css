@@ -16,3 +16,8 @@ app-loading {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+p,strong {
+  font-size: 2 rem;
+  padding: 3px;
+}

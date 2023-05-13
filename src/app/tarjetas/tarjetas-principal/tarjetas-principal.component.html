@@ -1,0 +1,19 @@
+<app-encabezado-secundario></app-encabezado-secundario>
+
+<div class="contenedor">
+  <div class="principal">
+    <div class="texto">
+      <h1>Mis Tarjetas</h1>
+    </div>
+  <div class="secundario">
+    <div class="misTarjetas">
+      <h2>Aun no tienes tarjetas regristradas</h2>
+      <p>Solicita tus tarjetas en minutos y comienza a usarla cuando quieras</p>
+        <p-button label="¡Quiero mi tarjeta!" styleClass="w-full h-2rem" (click)="navegaASolicitarTarjeta()"></p-button>
+    </div>
+</div>
+</div>
+</div>
+
+<app-footer></app-footer>
+<app-loading *ngIf="loading" class="carga"></app-loading>

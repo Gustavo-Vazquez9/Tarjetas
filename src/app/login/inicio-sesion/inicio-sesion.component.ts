@@ -50,8 +50,8 @@ export class InicioSesionComponent implements OnInit{
         if(this.correo === item.correo && this.contrasena === item.contra)
         {
             this.loading=false;
-            this.router.navigate(['/crearCuenta']);
-
+            this.router.navigate(['/tarjetas/misTarjetas']);
+            return;
         } else
         {
           this.loading=false;

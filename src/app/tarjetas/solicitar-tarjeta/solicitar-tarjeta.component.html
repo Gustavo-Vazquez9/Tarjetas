@@ -1,0 +1,26 @@
+<app-encabezado-secundario></app-encabezado-secundario>
+
+<div class="contenedor">
+  <div class="elementos item1 text-center justify-content-center align-items-center pt-5">
+    <i class="pi pi-credit-card" style=" color: #243c7c; font-size: 5rem"></i>
+    <p class="p-1"><strong>1. Selecciona la tarjeta que quieres.</strong></p>
+    <p class="p-1">Podras elegir entre una tarjeta de credito o de debito.</p>
+  </div>
+  <div class="elementos item2 text-center justify-content-center align-items-center pt-5">
+    <i class="pi pi-th-large" style="color: #243c7c; font-size: 5rem"></i>
+    <p class="p-1"><strong>1. Elige el tipo de tarjeta.</strong></p>
+    <p class="p-1">Elige entre las opciones, la que cumpla con tus necesidades.</p>
+  </div>
+  <div class="elementos item3 text-center justify-content-center align-items-center pt-5">
+    <i class="pi pi-check-circle" style="color: #243c7c; font-size: 5rem"></i>
+    <p class="p-1"><strong>3. Confirma tu solicitud.</strong></p>
+    <p class="p-1">Confirma tu seleccion y ¡listo! visualiza tus tarjetas en el apartado "Mis Tarjetas".</p>
+    <div class="block p-0 m-0">
+      <p-button label="Comenzar solicitud" styleClass=" borde-primario h-2rem mt-1" (click)="navegaASolicitarTarjetaProceso()"></p-button>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>
+<app-loading *ngIf="loading" class="carga"></app-loading>
