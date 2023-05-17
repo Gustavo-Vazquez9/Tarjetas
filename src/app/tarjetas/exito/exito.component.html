@@ -1,0 +1,15 @@
+<app-encabezado-secundario></app-encabezado-secundario>
+
+
+<div class="contenedor">
+  <div class="elementos item1 text-center justify-content-center align-items-center pt-3">
+    <i class="pi pi-check mt-2" style="color: #243c7c; font-size: 6rem"></i>
+    <p class="p-1 text-primary text-4xl">¡Listo!</p>
+    <p class="p-1">Ya puedes usar tu tarjeta. Tambien puedes ver y administrar tu tarjeta en la seccion de "Mis Tarjetas".</p>
+    <p-button label="Continuar" styleClass="p-button-raised h-2rem w-9" (click)="finalizar()"></p-button>
+  </div>
+</div>
+
+
+<app-footer class="sticky"></app-footer>
+<app-loading *ngIf="loading" class="carga"></app-loading>

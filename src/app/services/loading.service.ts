@@ -8,6 +8,10 @@ import { HttpClient } from '@angular/common/http'
 export class LoadingService {
 
    loading = new BehaviorSubject<boolean>(false);
+   public tipo : string = "";
+   public color : string = "";
+   public especificacion : string = "";
+   public informacion : string = "";
 
   constructor(private http: HttpClient) { }
 
@@ -41,5 +45,23 @@ export class LoadingService {
           return data;
         })
       )
+  }
+
+
+  public tipoTarjetaResumen(tipoP : string)
+  {
+    this.tipo = tipoP;
+  }
+  public tipoColorResumen(colorP : string)
+  {
+    this.color = colorP;
+  }
+  public tipoEspecificacionResumen(especificacionP : string)
+  {
+    this.especificacion = especificacionP;
+  }
+  public tipoInformacionResumen(informacionP : string)
+  {
+    this.informacion = informacionP;
   }
 }

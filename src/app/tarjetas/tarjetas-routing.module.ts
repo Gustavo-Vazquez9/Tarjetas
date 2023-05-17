@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TarjetasPrincipalComponent } from './tarjetas-principal/tarjetas-principal.component';
 import { SolicitarTarjetaComponent } from './solicitar-tarjeta/solicitar-tarjeta.component';
 import { SolicitarTarjetaProcesoComponent } from './solicitar-tarjeta-proceso/solicitar-tarjeta-proceso.component';
+import { TipoTarjetaComponent } from './tipo-tarjeta/tipo-tarjeta.component';
+import { ResumenComponent } from './resumen/resumen.component';
+import { ExitoComponent } from './exito/exito.component';
 
 
 const routes: Routes = [
@@ -21,6 +24,18 @@ const routes: Routes = [
   {
     path:'seleccionTarjeta',
     component: SolicitarTarjetaProcesoComponent,
+  },
+  {
+    path:'tipoTarjeta',
+    component: TipoTarjetaComponent,
+  },
+  {
+    path:'resumenTarjeta',
+    component: ResumenComponent,
+  },
+  {
+    path:'exito',
+    component: ExitoComponent,
   },
 ];
 

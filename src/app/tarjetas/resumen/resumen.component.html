@@ -1,0 +1,29 @@
+<app-encabezado-secundario></app-encabezado-secundario>
+
+
+<div class="title">
+  <p>Resumen de la solicitud</p>
+</div>
+<div class="contenedor">
+  <div class="elementos item1">
+    <p>{{tipo}}</p>
+    <p-button label="Cambiar" styleClass="p-button-text" (click)="redirectToseleccionTarjeta()"></p-button>
+  </div>
+  <div class="elementos item2">
+    <div class="marco">
+      <div class="card" [style.background-color]="color"><p>{{especificacion}}</p></div>
+      <div class="card-text">
+        <p>{{informacion}}</p>
+      </div>
+    </div>
+    <p-button label="Cambiar" styleClass="p-button-text" (click)="redirectTotipoTarjeta()"></p-button>
+  </div>
+  <div class="item3">
+    <p-button label="¡Solicitar tarjeta!" styleClass="p-button-raised" (click)="aceptaTarjeta()"></p-button>
+  </div>
+</div>
+
+
+
+<app-footer class="sticky"></app-footer>
+<app-loading *ngIf="loading" class="carga"></app-loading>
