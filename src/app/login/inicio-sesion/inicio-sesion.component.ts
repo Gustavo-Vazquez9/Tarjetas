@@ -50,6 +50,7 @@ export class InicioSesionComponent implements OnInit{
         if(this.correo === item.correo && this.contrasena === item.contra)
         {
             this.loading=false;
+            this.salvarDatosUsuario(item.id,item.nombre, item.apellido);
             this.router.navigate(['/tarjetas/misTarjetas']);
             return;
         } else
@@ -68,6 +69,10 @@ export class InicioSesionComponent implements OnInit{
 
   onSubmit()
   {
-    console.log(this.loginForm.valid);
+  }
+
+  salvarDatosUsuario(id : string , nombre: string , apellido : string) {
+  this.loadingService.guardarDatosUsuario(id,nombre,apellido);
   }
 }
+

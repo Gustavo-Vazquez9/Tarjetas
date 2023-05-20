@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, tap } from 'rxjs';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +8,18 @@ import { HttpClient } from '@angular/common/http'
 export class LoadingService {
 
    loading = new BehaviorSubject<boolean>(false);
+
+   //tarjeta
    public tipo : string = "";
    public color : string = "";
    public especificacion : string = "";
    public informacion : string = "";
+
+
+   //usuario
+   public nombre : string = "";
+   public apellido : string = "";
+   public id : string = "";
 
   constructor(private http: HttpClient) { }
 
@@ -47,6 +55,16 @@ export class LoadingService {
       )
   }
 
+  public postTarjetas(url: string, httpHeaders: {}): Observable<any> {
+    return this.http.post<any>(url, httpHeaders)
+      .pipe(
+        map(data => {
+          this.loading.next(false);
+          return data;
+        })
+      )
+  }
+
 
   public tipoTarjetaResumen(tipoP : string)
   {
@@ -63,5 +81,11 @@ export class LoadingService {
   public tipoInformacionResumen(informacionP : string)
   {
     this.informacion = informacionP;
+  }
+  public guardarDatosUsuario(id : string , nombre : string, apellido : string)
+  {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.id = id;
   }
 }

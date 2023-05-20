@@ -8,10 +8,28 @@
       "contra": "CruzAzul.9"
     },
     {
+      "id": 2,
       "nombre": "Jazmin",
       "apellido": "Morales Chavarria",
       "correo": "jaz1234@gmail.com",
-      "contra": "Morena12",
+      "contra": "Morena12"
+    }
+  ],
+  "tarjetas": [
+    {
+      "id": 1,
+      "numero": "",
+      "vencimiento": "",
+      "tipo": "",
+      "categoria": "",
+      "idUser": 1
+    },
+    {
+      "numero": "2451 6975 0345 7561",
+      "vencimiento": "01/26",
+      "tipo": "Tarjeta de Debito",
+      "categoria": "GFT Gold",
+      "usuarioId": "1",
       "id": 2
     }
   ]
