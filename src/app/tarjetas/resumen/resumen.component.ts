@@ -75,7 +75,7 @@ export class ResumenComponent implements OnInit{
     "color": this.color,
     "usuarioId": this.id,
   }
-  this.loadingService.postTarjetas(`http://localhost:3000/usuarios/${this.id}/tarjetas`, this.post)
+  this.loadingService.postTarjetas(`http://192.168.0.3:3000/usuarios/${this.id}/tarjetas`, this.post)
   .subscribe( (data) =>
   {
     this.loading=false;

@@ -48,7 +48,7 @@ registrar()
     "correo":this.correo,
     "contra":this.contra
   }
-  this.loginService.postUsuario("http://localhost:3000/usuarios", this.post)
+  this.loginService.postUsuario("http://192.168.0.3:3000/usuarios", this.post)
   .subscribe( (data) =>
   {
     this.loading=false;

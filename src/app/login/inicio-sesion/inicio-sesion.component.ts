@@ -38,7 +38,7 @@ export class InicioSesionComponent implements OnInit{
   validarCredenciales()
   {
 
-    this.loadingService.getUusario("http://localhost:3000/usuarios")
+    this.loadingService.getUusario("http://192.168.0.3:3000/usuarios")
     .subscribe( (data) =>
     {
       this.loading = true;

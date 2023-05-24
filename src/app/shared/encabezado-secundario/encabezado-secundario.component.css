@@ -9,6 +9,7 @@
 .logo {
   width: 150px;
   margin-left: 40px;
+  z-index: 5;
 }
 
 
@@ -20,4 +21,57 @@ app-loading {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+}
+
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .encabezado {
+    width: 100%;
+    height: 70px;
+    position: relative;
+  }
+
+  .menu {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    top: 10px;
+  }
+
+  .logo {
+    width: 150px;
+    margin-left: 40px;
+    position: absolute;
+    right: 0;
+  }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .encabezado {
+    width: 100%;
+    height: 70px;
+    position: relative;
+  }
+
+  .menu {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    top: 10px;
+  }
+
+  .logo {
+    width: 150px;
+    margin-left: 40px;
+    z-index: 5;
+    position: absolute;
+    right: 0;
+  }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1024px) {
 }

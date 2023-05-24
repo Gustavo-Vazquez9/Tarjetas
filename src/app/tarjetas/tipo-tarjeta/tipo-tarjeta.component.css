@@ -88,3 +88,33 @@ app-loading {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .contenedor {
+    width: 100%;
+    display: block;
+    margin-bottom: 17em;
+  }
+  .title {
+    padding-left: 1em;
+  }
+  .elementos {
+    width: 100%;
+    margin: 0px;
+    height: 15em;
+    box-shadow: -1px 2px 5px 2px #aaa;
+  }
+  .card {
+    left: 4.2em;
+  }
+  .card-text {
+    width: 100%;
+    padding: 2em;
+  }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 768px) and (max-width: 1023px) {
+}

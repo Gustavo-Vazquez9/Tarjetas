@@ -21,7 +21,7 @@ export class TipoTarjetaComponent implements OnInit{
     let contadorGold = 0;
     let contadorBlack = 0;
     this.datoslocal = this.loadingService.getDatos();
-    this.loadingService.getTarjetas(`http://localhost:3000/usuarios/${this.datoslocal.id}/tarjetas`)
+    this.loadingService.getTarjetas(`http://192.168.0.3:3000/usuarios/${this.datoslocal.id}/tarjetas`)
     .subscribe( (data) =>
     {
       data.map( (item : any) =>

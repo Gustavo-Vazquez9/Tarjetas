@@ -31,3 +31,17 @@ app-loading {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .contenedor {
+    margin-bottom: 17em;
+  }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 768px) and (max-width: 1023px) {
+}

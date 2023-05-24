@@ -13,26 +13,76 @@
       "apellido": "Morales Chavarria",
       "correo": "jaz1234@gmail.com",
       "contra": "Morena12"
+    },
+    {
+      "nombre": "Molly ",
+      "apellido": "Lumo",
+      "correo": "molly05@gmail.com",
+      "contra": "Molly.05",
+      "id": 3
+    },
+    {
+      "nombre": "Jazmin ",
+      "apellido": "Morales",
+      "correo": "jaz1234@gmail.com",
+      "contra": "Morena.12",
+      "id": 4
     }
   ],
   "tarjetas": [
     {
-      "numero": "3372 4890 3742 5940",
-      "vencimiento": "01/25",
+      "numero": "3704 2544 0185 7323",
+      "vencimiento": "09/24",
       "tipo": "Tarjeta de Debito",
-      "categoria": "GFT Gold",
-      "color": "linear-gradient(90deg, rgba(164,146,17,1) 23%, rgba(195,173,11,1) 62%, rgba(232,205,5,1) 99%)",
+      "categoria": "GFT Premium",
+      "color": "linear-gradient(90deg, rgba(25,17,164,1) 23%, rgba(13,13,194,1) 62%, rgba(1,1,251,1) 99%)",
       "usuarioId": "1",
       "id": 1
     },
     {
-      "numero": "4058 5610 4267 1146",
-      "vencimiento": "06/28",
-      "tipo": "Tarjeta de Credito",
-      "categoria": "GFT Premium",
-      "color": "linear-gradient(90deg, rgba(25,17,164,1) 23%, rgba(13,13,194,1) 62%, rgba(1,1,251,1) 99%)",
+      "numero": "4132 3923 9074 4971",
+      "vencimiento": "11/29",
+      "tipo": "Tarjeta de Debito",
+      "categoria": "GFT Black",
+      "color": "linear-gradient(90deg, rgba(0,0,0,1) 23%, rgba(40,40,40,1) 62%, rgba(73,73,73,1) 99%)",
       "usuarioId": "1",
       "id": 2
+    },
+    {
+      "numero": "3047 6070 9895 1384",
+      "vencimiento": "01/23",
+      "tipo": "Tarjeta de Debito",
+      "categoria": "GFT Gold",
+      "color": "linear-gradient(90deg, rgba(164,146,17,1) 23%, rgba(195,173,11,1) 62%, rgba(232,205,5,1) 99%)",
+      "usuarioId": "1",
+      "id": 3
+    },
+    {
+      "numero": "8640 2984 2232 4121",
+      "vencimiento": "02/28",
+      "tipo": "Tarjeta de Debito",
+      "categoria": "GFT Premium",
+      "color": "linear-gradient(90deg, rgba(25,17,164,1) 23%, rgba(13,13,194,1) 62%, rgba(1,1,251,1) 99%)",
+      "usuarioId": "4",
+      "id": 4
+    },
+    {
+      "numero": "9446 9850 4117 7012",
+      "vencimiento": "07/29",
+      "tipo": "Tarjeta de Debito",
+      "categoria": "GFT Black",
+      "color": "linear-gradient(90deg, rgba(0,0,0,1) 23%, rgba(40,40,40,1) 62%, rgba(73,73,73,1) 99%)",
+      "usuarioId": "4",
+      "id": 5
+    },
+    {
+      "numero": "8122 4802 8671 7402",
+      "vencimiento": "01/23",
+      "tipo": "Tarjeta de Credito",
+      "categoria": "GFT Gold",
+      "color": "linear-gradient(90deg, rgba(164,146,17,1) 23%, rgba(195,173,11,1) 62%, rgba(232,205,5,1) 99%)",
+      "usuarioId": "4",
+      "id": 6
     }
   ]
 }

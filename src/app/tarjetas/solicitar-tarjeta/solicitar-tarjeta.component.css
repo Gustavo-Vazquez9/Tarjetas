@@ -34,3 +34,37 @@ app-loading {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .contenedor {
+    width: 100%;
+    display: block;
+  }
+  .title {
+    padding-left: 1em;
+  }
+  .elementos {
+    width: 100%;
+    margin: 0px;
+    height: 17em;
+    box-shadow: -1px 2px 5px 2px #aaa;
+  }
+  app-loading {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1024px) {
+}
