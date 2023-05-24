@@ -43,14 +43,13 @@ export class InicioSesionComponent implements OnInit{
     {
       this.loading = true;
       this.validaEntrada=true;
-      console.log(data);
       data.map( (item : any) =>
       {
-        console.log(item);
         if(this.correo === item.correo && this.contrasena === item.contra)
         {
             this.loading=false;
-            this.salvarDatosUsuario(item.id,item.nombre, item.apellido);
+            const informacion = {"id":item.id,"nombre":item.nombre + " " +item.apellido}
+           this.loadingService.setDatos(informacion);
             this.router.navigate(['/tarjetas/misTarjetas']);
             return;
         } else
@@ -69,10 +68,6 @@ export class InicioSesionComponent implements OnInit{
 
   onSubmit()
   {
-  }
-
-  salvarDatosUsuario(id : string , nombre: string , apellido : string) {
-  this.loadingService.guardarDatosUsuario(id,nombre,apellido);
   }
 }
 

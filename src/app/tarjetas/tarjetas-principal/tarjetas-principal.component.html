@@ -1,18 +1,65 @@
 <app-encabezado-secundario></app-encabezado-secundario>
 
-<div class="contenedor">
+<div class="contenedor" *ngIf="!banderaMuestra">
   <div class="principal">
     <div class="texto">
       <h1>Mis Tarjetas</h1>
     </div>
-  <div class="secundario">
-    <div class="misTarjetas">
-      <h2>Aun no tienes tarjetas regristradas</h2>
-      <p>Solicita tus tarjetas en minutos y comienza a usarla cuando quieras</p>
+    <div class="secundario">
+      <div class="misTarjetas">
+        <h2>Aun no tienes tarjetas regristradas</h2>
+        <p>Solicita tus tarjetas en minutos y comienza a usarla cuando quieras</p>
         <p-button label="¡Quiero mi tarjeta!" styleClass="w-full h-2rem" (click)="navegaASolicitarTarjeta()"></p-button>
+      </div>
     </div>
+  </div>
 </div>
-</div>
+
+<div class="contenedorTarjetas" *ngIf="banderaMuestra">
+  <div class="principalTarjetas">
+    <div class="texto">
+      <h1>Mis Tarjetas</h1>
+    </div>
+    <div class="elementos align-items-center justify-content-center">
+
+      <div class="card"
+      [style.background]="item.color"
+      *ngFor="let item of datos">
+        <div class="nivel1">
+          <p>{{item.categoria}}</p>
+          <p>{{item.tipo}}</p>
+        </div>
+        <div class="nivel2">
+          <h3>{{item.numero}}</h3>
+        </div>
+        <div class="nivel3">
+          <p>{{datoslocal.nombre}}</p>
+          <p> <small>vencimiento </small>{{item.vencimiento}}</p>
+        </div>
+        <div class="nivel4">
+          <img src="../../../assets/visa.png" alt="" srcset="">
+        </div>
+      </div>
+
+      <div class="card agregar"
+      *ngIf="banderaCantidadTarjetas"
+      [style.background]="'linear-gradient(90deg, rgba(198,198,198,1) 14%, rgba(222,222,222,1) 50%, rgba(241,241,241,1) 99%)'"
+      (click)="navegaASolicitarTarjeta()">
+        <div class="nivel1">
+        </div>
+        <div class="nivel2">
+          <i class="pi pi-plus" style="color: #585858; font-size: 3rem"></i>
+        </div>
+        <div class="nivel3">
+          <p style="color: #585858; font-size: 1.2rem">Solicitar nueva tarjeta</p>
+        </div>
+        <div class="nivel4">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>

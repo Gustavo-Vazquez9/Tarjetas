@@ -17,18 +17,20 @@
   ],
   "tarjetas": [
     {
-      "id": 1,
-      "numero": "",
-      "vencimiento": "",
-      "tipo": "",
-      "categoria": "",
-      "idUser": 1
-    },
-    {
-      "numero": "2451 6975 0345 7561",
-      "vencimiento": "01/26",
+      "numero": "3372 4890 3742 5940",
+      "vencimiento": "01/25",
       "tipo": "Tarjeta de Debito",
       "categoria": "GFT Gold",
+      "color": "linear-gradient(90deg, rgba(164,146,17,1) 23%, rgba(195,173,11,1) 62%, rgba(232,205,5,1) 99%)",
+      "usuarioId": "1",
+      "id": 1
+    },
+    {
+      "numero": "4058 5610 4267 1146",
+      "vencimiento": "06/28",
+      "tipo": "Tarjeta de Credito",
+      "categoria": "GFT Premium",
+      "color": "linear-gradient(90deg, rgba(25,17,164,1) 23%, rgba(13,13,194,1) 62%, rgba(1,1,251,1) 99%)",
       "usuarioId": "1",
       "id": 2
     }

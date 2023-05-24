@@ -10,20 +10,21 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class ResumenComponent implements OnInit{
 
   public post : any = {};
-  public tipo : string = "";
-  public color : string = "";
-  public especificacion : string = "";
-  public informacion : string = "";
-  public id : string = "";
+  public tipo: string = "";
+  public especificacion: string = "";
+  public color: string = "";
+  public id: string = "";
+  public informacion: string = "";
+  public numeroTarjeta: string = "";
 
   constructor(private loadingService : LoadingService, private router : Router) {}
 
   ngOnInit(): void {
-    this.tipo = this.loadingService.tipo;
-    this.color = this.loadingService.color;
-    this.especificacion = this.loadingService.especificacion;
-    this.informacion = this.loadingService.informacion;
-    this.id = this.loadingService.id;
+    this.tipo = this.loadingService.getDatosTarjeta().datoTarjeta;
+    this.especificacion = this.loadingService.getTipoTarjeta().especificacion;
+    this.color = this.loadingService.getTipoTarjeta().color;
+    this.id = this.loadingService.getDatos().id;
+    this.informacion = this.loadingService.getTipoTarjeta().informacion;
   }
 
   public loading = false;
@@ -39,27 +40,55 @@ export class ResumenComponent implements OnInit{
         this.router.navigate(['/tarjetas/exito']);
       }
       )
-    }, 1000);
+    }, 3000);
   }
 
 
   altaTarjeta() {
+    const fechaActual = new Date();
+    const mesActual = fechaActual.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+    const anioActual = fechaActual.getFullYear();
+
+    const anioVencimiento = Math.floor(Math.random() * (2030 - anioActual + 1)) + anioActual;
+    let mesVencimiento: number;
+
+    if (anioVencimiento === anioActual) {
+      // Si el año de vencimiento es el mismo que el actual, generamos un mes aleatorio que no supere el mes actual
+      mesVencimiento = Math.floor(Math.random() * (mesActual - 1 + 1)) + 1;
+    } else {
+      // Si el año de vencimiento es posterior al actual, generamos un mes aleatorio entre 1 y 12
+      mesVencimiento = Math.floor(Math.random() * 12) + 1;
+    }
+
+    // Formateamos la fecha de vencimiento en el formato deseado (MM/YY)
+    const fechaVencimiento = `${mesVencimiento.toString().padStart(2, '0')}/${(anioVencimiento % 100).toString().padStart(2, '0')}`;
+
+  const randomNumber = Math.floor(1000000000000000 + Math.random() * 9000000000000000);
+  this.numeroTarjeta = this.formatoNumeroTarjeta(randomNumber.toString());
+
   this.loading = true;
   this.post = {
-    "numero":"2451 6975 0345 7561",
-    "vencimiento":"01/26",
-    "tipo":this.tipo,
-    "categoria":this.especificacion
+    "numero": this.numeroTarjeta,
+    "vencimiento": fechaVencimiento,
+    "tipo": this.tipo,
+    "categoria": this.especificacion,
+    "color": this.color,
+    "usuarioId": this.id,
   }
   this.loadingService.postTarjetas(`http://localhost:3000/usuarios/${this.id}/tarjetas`, this.post)
   .subscribe( (data) =>
   {
     this.loading=false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/tarjetas/exito']);
     console.log(data);
   });
   }
 
+
+  formatoNumeroTarjeta(cardNumber: string): string {
+    const parts = cardNumber.match(/[\s\S]{1,4}/g) || [];
+    return parts.join(' ');
+  }
 
   redirectToseleccionTarjeta()
   {

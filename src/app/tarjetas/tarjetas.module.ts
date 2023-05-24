@@ -11,6 +11,7 @@ import { SolicitarTarjetaProcesoComponent } from './solicitar-tarjeta-proceso/so
 import { TipoTarjetaComponent } from './tipo-tarjeta/tipo-tarjeta.component';
 import { ResumenComponent } from './resumen/resumen.component';
 import { ExitoComponent } from './exito/exito.component';
+import { MisTarjetasComponent } from './mis-tarjetas/mis-tarjetas.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ExitoComponent } from './exito/exito.component';
     SolicitarTarjetaProcesoComponent,
     TipoTarjetaComponent,
     ResumenComponent,
-    ExitoComponent
+    ExitoComponent,
+    MisTarjetasComponent
   ],
   imports: [
     CommonModule,

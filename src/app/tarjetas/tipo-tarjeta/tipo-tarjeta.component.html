@@ -4,19 +4,22 @@
   <p>Elige el tipo de tarjeta</p>
 </div>
 <div class="contenedor">
-  <div class="elementos align-items-center justify-content-center">
+  <div class="elementos align-items-center justify-content-center"
+  *ngIf="maxPremium">
     <div class="card item1" (click)="tipoTarjeta(0)"><p>GFT Premium</p></div>
     <div class="card-text">
       <p>Las compras que realices te bonificaran el 2% en puntos, que podras canjear en tus compras.</p>
     </div>
   </div>
-  <div class="elementos align-items-center justify-content-center">
+  <div class="elementos align-items-center justify-content-center"
+  *ngIf="maxGold">
     <div class="card item2" (click)="tipoTarjeta(1)"><p>GFT Gold</p></div>
     <div class="card-text">
       <p>Las compras que realices te bonificaran el 5% en puntos, que podras canjear en tus compras.</p>
     </div>
   </div>
-  <div class="elementos align-items-center justify-content-center">
+  <div class="elementos align-items-center justify-content-center"
+  *ngIf="maxBlack">
     <div class="card item3" (click)="tipoTarjeta(2)"><p>GFT Black</p></div>
     <div class="card-text">
       <p>Las compras que realices te bonificaran el 10% en puntos, que podras canjear en tus compras.</p>

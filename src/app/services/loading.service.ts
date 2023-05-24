@@ -8,18 +8,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 export class LoadingService {
 
    loading = new BehaviorSubject<boolean>(false);
-
-   //tarjeta
-   public tipo : string = "";
-   public color : string = "";
-   public especificacion : string = "";
-   public informacion : string = "";
-
-
-   //usuario
-   public nombre : string = "";
-   public apellido : string = "";
-   public id : string = "";
+   //local
+   public datoslocal : any;
+   public datosTarjetalocal : any;
+   public tipoTarjetalocal : any;
+   public seguimiento! : boolean;
+   public indicador = "";
 
   constructor(private http: HttpClient) { }
 
@@ -65,27 +59,98 @@ export class LoadingService {
       )
   }
 
+  public getTarjetas(url: string): Observable<any> {
+    return this.http.get<any>(url)
+      .pipe(
+        map(data => {
+          this.loading.next(false);
+          return data;
+        })
+      )
+  }
 
-  public tipoTarjetaResumen(tipoP : string)
+
+  //Informacion del usuario login
+  setDatos(valor? : string|object)
   {
-    this.tipo = tipoP;
+    this.datoslocal = valor;
+    localStorage.setItem('data', JSON.stringify(valor));
   }
-  public tipoColorResumen(colorP : string)
+
+  getDatos()
   {
-    this.color = colorP;
+    if(!this.datoslocal)
+    {
+      this.datoslocal = JSON.parse(localStorage.getItem('data') || '{}');
+    }
+    return this.datoslocal;
   }
-  public tipoEspecificacionResumen(especificacionP : string)
+
+
+  //informacion de la tarjeta solictarTarjetaProceso
+  setDatosTarjeta(valor? : string|object)
   {
-    this.especificacion = especificacionP;
+    this.datosTarjetalocal = valor;
+    localStorage.setItem('datosTarjeta', JSON.stringify(valor));
   }
-  public tipoInformacionResumen(informacionP : string)
+
+  getDatosTarjeta()
   {
-    this.informacion = informacionP;
+    if(!this.datosTarjetalocal)
+    {
+      this.datosTarjetalocal = JSON.parse(localStorage.getItem('datosTarjeta') || '{}');
+    }
+    return this.datosTarjetalocal;
   }
-  public guardarDatosUsuario(id : string , nombre : string, apellido : string)
+
+
+  //informacion del tipo de tarjeta tipoTarjeta
+  setTipoTarjeta(valor? : string|object)
   {
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.id = id;
+    this.tipoTarjetalocal = valor;
+    localStorage.setItem('tipo', JSON.stringify(valor));
   }
+
+  getTipoTarjeta()
+  {
+    if(!this.tipoTarjetalocal)
+    {
+      this.tipoTarjetalocal = JSON.parse(localStorage.getItem('tipo') || '{}');
+    }
+    return this.tipoTarjetalocal;
+  }
+
+
+    //informacion del seguimiento por cantidad de tarjetas
+    setCantidadTarjetas(valor : boolean)
+    {
+      this.seguimiento = valor;
+      localStorage.setItem('cantidad', JSON.stringify(valor));
+    }
+
+    getCantidadTarjetas()
+    {
+      if(!this.seguimiento)
+      {
+        this.seguimiento = JSON.parse(localStorage.getItem('cantidad') || '{}');
+      }
+      return this.seguimiento;
+    }
+
+
+    //Indica el tipo de tarjetas validas
+    setTarjetaValida(valor : string)
+      {
+        this.indicador = valor;
+        localStorage.setItem('identificador', JSON.stringify(valor));
+      }
+
+    getTarjetaValida()
+      {
+        if(!this.indicador)
+        {
+          this.indicador = JSON.parse(localStorage.getItem('identificador') || '{}');
+        }
+        return this.indicador;
+      }
 }

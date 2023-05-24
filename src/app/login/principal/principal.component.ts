@@ -25,13 +25,6 @@ export class PrincipalComponent {
   }
   navegaACrearCuenta()
   {
-
-    var j = 1;
-    for(var i = -13 ; i <= -10 ; i++)
-    {
-      j++;
-    }
-    console.log(j);
     this.loading = true;
     this.loadingService.setLoading().subscribe( () =>
     {
